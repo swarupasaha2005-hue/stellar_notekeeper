@@ -182,16 +182,28 @@ https://stellar.expert/explorer/testnet/contract/XXXXXXXXXXXXXXXX
 
 ---
 
+## 🎨 UI Enhancements (Retro Web3 OS)
+
+The frontend has been completely overhauled into an interactive, draggable **Retro OS Widget Desktop**:
+* **Draggable Window Widgets**: Every UI component (Notes, Wallet, Player) is a movable window.
+* **Animated Grid Background**: Floating pastel clouds and city trees scrolling in the background.
+* **Pixel Cursor**: Custom layered SVG cursor matching the kawaii aesthetic.
+* **Interactive Lofi Music Player**: Built-in Web Audio API synthesizer that plays smooth chords.
+* **Dynamic Real-time Clock**: A `sys_clock.exe` widget that updates the time actively.
+* **Day/Night Theme Toggle**: Native CSS variables mapping to a sun/moon switch for dark mode.
+* **Global Retro Click Sounds**: Sonic feedback for every window interaction.
+
+---
+
 ## Future Improvements
 
-Possible enhancements for the project:
+Possible enhancements for the smart contract:
 
 * Add **note IDs**
 * Implement **update note**
 * Implement **delete note**
 * Add **timestamps**
 * Support **user-specific note retrieval**
-* Build a **frontend interface (React + Freighter wallet)**
 
 ---
 
