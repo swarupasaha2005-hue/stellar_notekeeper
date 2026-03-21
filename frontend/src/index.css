@@ -1,0 +1,720 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap');
+
+/* ── Kawaii Pastel Web3 Theme ─────────────────────── */
+:root {
+  /* Core Colors */
+  --bg-main: #FAFAFA;
+  --bg-card: #FFFFFF;
+  --bg-input: #FFFFFF;
+  
+  /* Kawaii Pastel Palette */
+  --accent-lavender: #C4B5FD;
+  --accent-pink: #FBCFE8;
+  --accent-mint: #A7F3D0;
+  --accent-blue: #BAE6FD;
+  --accent-purple: #A78BFA;
+  --accent-yellow: #FEF08A;
+  
+  --accent-gradient: linear-gradient(135deg, var(--accent-lavender), var(--accent-pink));
+  --button-gradient: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+  
+  /* Text */
+  --text-primary: #4C1D95; /* Deep purple for readability */
+  --text-secondary: #7C3AED;
+  --text-muted: #8B5CF6;
+  
+  /* Borders & Shadows */
+  --border-subtle: rgba(167, 139, 250, 0.2);
+  --border-thick: 3px solid var(--accent-lavender);
+  
+  --shadow-soft: 0 10px 25px rgba(167, 139, 250, 0.15);
+  --shadow-float: 0 15px 35px rgba(251, 207, 232, 0.4);
+  --shadow-hard: 4px 4px 0px var(--accent-lavender); /* Comic/Cute style shadow */
+
+  /* Utilities */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+  --radius-round: 50px;
+  --transition-fast: 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy */
+  --transition-base: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Reset & Base ─────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Nunito', sans-serif; /* Playful rounded font */
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--bg-main);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(251, 207, 232, 0.3) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(167, 243, 208, 0.3) 0%, transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(196, 181, 253, 0.3) 0%, transparent 25%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Centered Layout ──────────────────────────────── */
+.app-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  position: relative;
+}
+
+.app-main-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* ── Floating Stickers Area ───────────────────────── */
+.floating-stickers {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sticker {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.cat-sticker {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(2px 4px 6px rgba(167, 139, 250, 0.4));
+}
+
+.cat-sticker-1 { top: 8%; left: -6%; animation-delay: 0s; transform: rotate(-10deg); width: 140px; }
+.cat-sticker-2 { top: 25%; right: -8%; animation-delay: 1.5s; transform: rotate(12deg); width: 130px; }
+.cat-sticker-3 { bottom: 15%; left: -5%; animation-delay: 2s; transform: rotate(-5deg); width: 160px; }
+
+.sticker-4 { top: 60%; right: 2%; animation-delay: 1.5s; transform: rotate(-10deg); font-size: 2.5rem; }
+.sticker-5 { bottom: 8%; left: 15%; animation-delay: 3s; transform: rotate(20deg); font-size: 2rem;}
+.sticker-6 { bottom: 5%; right: 10%; animation-delay: 0.5s; font-size: 1.8rem; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* ── Header ───────────────────────────────────────── */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background: var(--bg-card);
+  border: var(--border-thick);
+  border-radius: var(--radius-round);
+  margin-bottom: 48px;
+  box-shadow: var(--shadow-hard);
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-logo-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--accent-pink);
+  border: var(--border-thick);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 2px 2px 0px var(--accent-lavender);
+  transform: rotate(-5deg);
+}
+
+.app-logo h1.title-with-sparkles {
+  position: relative;
+  display: inline-block;
+  font-family: 'Pacifico', cursive; /* Playful cursive font */
+  font-size: 2.2rem;
+  color: var(--accent-purple);
+  line-height: 1.2;
+  text-shadow: 2px 2px 0px var(--accent-pink);
+}
+
+.title-sparkle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: sparkleTwinkle 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.title-sparkle-left {
+  top: -15px;
+  left: -25px;
+  animation-delay: 0s;
+}
+
+.title-sparkle-right {
+  bottom: 5px;
+  right: -30px;
+  animation-delay: 1s;
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+  50% { transform: scale(1.2) rotate(15deg); opacity: 1; filter: drop-shadow(0 0 8px var(--accent-lavender)); }
+}
+
+.app-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ── Buttons (Kawaii Rounded Style) ───────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border: var(--border-thick);
+  border-radius: var(--radius-round);
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-hard);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 0 0 0 transparent !important;
+  background: #E5E7EB !important;
+  border-color: #D1D5DB !important;
+  color: #9CA3AF !important;
+}
+
+.btn-primary {
+  background: var(--button-gradient);
+  color: #FFFFFF;
+  border-color: var(--accent-purple);
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+  animation: gentleBounce 4s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); box-shadow: var(--shadow-hard); }
+  50% { transform: translateY(-3px); box-shadow: 4px 8px 0px var(--accent-purple), 0 0 15px var(--accent-pink); }
+}
+
+.btn-primary:hover:not(:disabled) {
+  animation: none;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 4px 8px 0px var(--accent-purple), 0 0 20px var(--accent-pink);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0px 0px 0px transparent;
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--accent-lavender);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--accent-lavender);
+  color: #fff;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 4px 8px 0px var(--accent-purple);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  box-shadow: none;
+  padding: 8px 16px;
+}
+
+.btn-ghost:hover {
+  background: var(--accent-pink);
+  color: var(--text-primary);
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.btn-sm {
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  border-width: 2px;
+  box-shadow: 2px 2px 0px var(--accent-lavender);
+}
+
+.btn-sm:hover:not(:disabled) {
+  box-shadow: 2px 4px 0px var(--accent-purple);
+}
+
+/* ── Sticky Note Cards ────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-hard);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02) rotate(2deg);
+  box-shadow: 8px 14px 0px var(--accent-purple), 0 10px 25px rgba(251, 207, 232, 0.6);
+  z-index: 5;
+}
+
+/* ── Forms ────────────────────────────────────────── */
+.input,
+.textarea {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--accent-pink);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.5), transparent);
+  border: var(--border-thick);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  outline: none;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #9CA3AF;
+  font-weight: 600;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--accent-purple);
+  background: #FFFFFF;
+  box-shadow: var(--shadow-hard);
+  transform: translateY(-2px);
+}
+
+.textarea {
+  min-height: 160px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* ── Wallet Status ────────────────────────────────── */
+.wallet-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: var(--bg-card);
+  border: 2px solid var(--accent-mint);
+  border-radius: var(--radius-round);
+  box-shadow: 3px 3px 0px var(--accent-mint);
+}
+
+.wallet-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #10b981;
+  animation: bounce 2s infinite;
+}
+
+.wallet-address {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* ── Add Note Section ─────────────────────────────── */
+.add-note-section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8rem;
+  color: var(--accent-purple);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-shadow: 2px 2px 0px var(--accent-pink);
+}
+
+.section-title .icon {
+  font-size: 2rem;
+  animation: wiggle 3s infinite;
+}
+
+.add-note-card {
+  background: var(--accent-blue);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(255,255,255,0.4) 0%, transparent 20%),
+    radial-gradient(circle at 90% 90%, rgba(255,255,255,0.4) 0%, transparent 20%);
+  border: var(--border-thick);
+  border-color: #38BDF8;
+  box-shadow: 6px 6px 0px #38BDF8;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.add-note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 16px;
+}
+
+.char-count {
+  font-size: 0.9rem;
+  font-weight: 800;
+  background: #FFF;
+  padding: 4px 12px;
+  border-radius: var(--radius-round);
+  border: 2px solid var(--accent-lavender);
+  color: var(--accent-purple);
+  box-shadow: 2px 2px 0px var(--accent-lavender);
+}
+
+.char-count.near-limit { border-color: #FBBF24; color: #D97706; box-shadow: 2px 2px 0px #FBBF24; }
+.char-count.at-limit { border-color: #F87171; color: #DC2626; box-shadow: 2px 2px 0px #F87171; }
+
+/* ── Notes Grid (Sticky Notes) ────────────────────── */
+.notes-section {
+  margin-top: 24px;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.note-card {
+  animation: popInSmooth 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  display: flex;
+  flex-direction: column;
+  background: #FEF3C7; /* Sticky note yellow */
+  border: 2px solid #FCD34D;
+  box-shadow: 4px 6px 0px rgba(0,0,0,0.05);
+  border-radius: 2px 15px 15px 15px; /* Folded corner look */
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.note-card:hover {
+  transform: translateY(-8px) scale(1.03) rotate(-1deg);
+  box-shadow: 8px 12px 0px rgba(0,0,0,0.08);
+  z-index: 5;
+}
+
+/* Add a little tape to the top of the sticky note */
+.note-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 60px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.note-card:nth-child(even) {
+  background: var(--accent-pink);
+  border-color: #F9A8D4;
+}
+
+.note-card:nth-child(3n) {
+  background: var(--accent-mint);
+  border-color: #6EE7B7;
+}
+
+.note-content {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1F2937;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  word-break: break-word;
+  flex-grow: 1;
+  margin-top: 10px;
+}
+
+.note-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 2px dashed rgba(0,0,0,0.1);
+  gap: 12px;
+}
+
+.note-owner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4B5563;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  cursor: pointer;
+  background: rgba(255,255,255,0.6);
+  padding: 6px 12px;
+  border-radius: var(--radius-round);
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.note-owner:hover {
+  background: #FFF;
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+  transform: scale(1.05);
+}
+
+.note-badge {
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: var(--radius-round);
+  background: #FFF;
+  color: var(--accent-purple);
+  font-weight: 800;
+  border: 2px solid var(--accent-purple);
+  box-shadow: 2px 2px 0px var(--accent-purple);
+}
+
+/* ── Status & Feedback ────────────────────────────── */
+.success-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: #D1FAE5;
+  border: var(--border-thick);
+  border-color: #10B981;
+  border-radius: var(--radius-md);
+  margin-top: 24px;
+  animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 800;
+  color: #047857;
+  box-shadow: 4px 4px 0px #10B981;
+}
+
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: #FEE2E2;
+  border: var(--border-thick);
+  border-color: #EF4444;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  animation: wiggle 0.4s ease;
+  box-shadow: 4px 4px 0px #EF4444;
+}
+
+.error-banner-icon { font-size: 1.5rem; }
+.error-banner-text { font-size: 1rem; font-weight: 700; color: #B91C1C; flex: 1; }
+.error-banner .btn-ghost { 
+  background: #FFF; 
+  color: #EF4444; 
+  border: 2px solid #EF4444; 
+  border-radius: var(--radius-round);
+  box-shadow: 2px 2px 0px #EF4444;
+}
+.error-banner .btn-ghost:hover { transform: scale(1.05); }
+
+/* ── Skeletons ────────────────────────────────────── */
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.skeleton-card {
+  background: #FFF;
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-hard);
+}
+
+.skeleton-line {
+  height: 20px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  margin-bottom: 16px;
+}
+.skeleton-line:last-child { margin-bottom: 0; }
+.skeleton-line.short { width: 60%; }
+.skeleton-line.medium { width: 85%; }
+.skeleton-line.xs { width: 40%; margin-top: 24px; height: 35px; border-radius: var(--radius-round); }
+
+/* ── Empty State ──────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 80px 24px;
+  background: #FFF;
+  border: 4px dashed var(--accent-lavender);
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 0 0 10px rgba(196, 181, 253, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.empty-state::after {
+  content: '🌸';
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 2rem;
+  animation: spinSlow 10s linear infinite;
+}
+
+.empty-state-icon {
+  font-size: 5rem;
+  margin-bottom: 24px;
+  animation: bounce 2s infinite;
+}
+
+.empty-state h3 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: var(--accent-purple);
+  margin-bottom: 12px;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ── Utilities & Animations ───────────────────────── */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s ease-in-out infinite;
+}
+.spinner-sm { width: 18px; height: 18px; border-width: 3px; }
+
+.copy-tooltip { font-size: 0.8rem; color: #10B981; font-weight: 800; background: #D1FAE5; padding: 4px 8px; border-radius: 10px; border: 2px solid #10B981;}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+  60% { transform: scale(1.05) translateY(-5px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes popInSmooth {
+  0% { opacity: 0; transform: scale(0.5) translateY(40px) rotate(5deg); filter: blur(5px); }
+  50% { opacity: 1; transform: scale(1.05) translateY(-10px) rotate(-2deg); filter: blur(0px); }
+  100% { transform: scale(1) translateY(0) rotate(0deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .app-container { padding: 24px 16px 60px; }
+  .app-header {
+    flex-direction: column;
+    padding: 24px;
+    align-items: center;
+    text-align: center;
+    border-radius: var(--radius-lg);
+  }
+  .app-logo { flex-direction: column; gap: 12px; }
+  .notes-grid, .skeleton-grid { grid-template-columns: 1fr; }
+  .add-note-footer { flex-direction: column; align-items: stretch; gap: 20px;}
+  .char-count { text-align: right; }
+  .floating-stickers { display: none; } /* Hide stickers on mobile to avoid clutter */
+}
