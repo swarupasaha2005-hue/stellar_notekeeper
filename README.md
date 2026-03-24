@@ -27,6 +27,9 @@ Users can:
 1. Add new notes
 2. Store notes securely on-chain
 3. Retrieve all stored notes from the contract
+4. Update notes
+5. Delete notes
+6. Real-time clock
 
 The contract uses Soroban’s instance storage to persist data across transactions.
 
@@ -200,8 +203,6 @@ The frontend has been completely overhauled into an interactive, draggable **Ret
 Possible enhancements for the smart contract:
 
 * Add **note IDs**
-* Implement **update note**
-* Implement **delete note**
 * Add **timestamps**
 * Support **user-specific note retrieval**
 
