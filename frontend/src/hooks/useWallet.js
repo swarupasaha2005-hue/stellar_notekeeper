@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { fetchBalance } from '../lib/stellar';
 
 /**
  * React hook for Freighter wallet connection.
@@ -9,6 +10,7 @@ export function useWallet() {
   const [isConnected, setIsConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState(null);
+  const [balance, setBalance] = useState('0');
   const [freighterAvailable, setFreighterAvailable] = useState(null);
 
   // Check if Freighter is installed on mount
@@ -38,6 +40,19 @@ export function useWallet() {
     // Slight delay to ensure extension scripts have loaded
     setTimeout(checkFreighter, 250);
   }, []);
+
+  // Fetch balance periodically when connected
+  useEffect(() => {
+    if (isConnected && address) {
+      const getBalance = async () => {
+        const bal = await fetchBalance(address);
+        setBalance(bal);
+      };
+      getBalance();
+      const interval = setInterval(getBalance, 10000); // Update every 10s
+      return () => clearInterval(interval);
+    }
+  }, [isConnected, address]);
 
   const connect = useCallback(async () => {
     setError(null);
@@ -86,11 +101,18 @@ export function useWallet() {
 
   return {
     address,
+    balance,
     isConnected,
     isConnecting,
     error,
     freighterAvailable,
     connect,
     disconnect,
+    refreshBalance: async () => {
+      if (address) {
+        const bal = await fetchBalance(address);
+        setBalance(bal);
+      }
+    }
   };
 }

@@ -5,6 +5,7 @@ import { fetchNotes, submitNote, updateNote, deleteNote } from './lib/stellar';
 import AddNoteWidget from './components/AddNoteWidget';
 import NotesListWidget from './components/NotesListWidget';
 import WalletWidget from './components/WalletWidget';
+import TransferWidget from './components/TransferWidget';
 import ClockWidget from './components/ClockWidget';
 import MusicPlayerWidget from './components/MusicPlayerWidget';
 import { AffirmationWidget, DailyWidget } from './components/DecorWidgets';
@@ -145,6 +146,16 @@ export default function App() {
         error={wallet.error}
         connect={wallet.connect}
         disconnect={wallet.disconnect}
+        playClick={playClick}
+      />
+
+      <TransferWidget 
+        initialPosition={{ x: 40, y: winH - 600 }}
+        isActive={activeWindow === 'transfer_xlm'}
+        onFocus={() => setActiveWindow('transfer_xlm')}
+        address={wallet.address}
+        isConnected={wallet.isConnected}
+        refreshBalance={wallet.refreshBalance}
         playClick={playClick}
       />
 

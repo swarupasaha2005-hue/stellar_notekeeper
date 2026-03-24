@@ -23,6 +23,12 @@ async function getServer() {
 // NOTE: You must update CONTRACT_ID when you re-deploy the updated contract logic!
 export const CONTRACT_ID = 'CCHMIRJQDW6HJPEZ3TUORFANL3M5HWSKVYVMJPBAXWTX3OZS3PKT6Q4B';
 export const SOROBAN_RPC_URL = 'https://soroban-testnet.stellar.org';
+export const HORIZON_URL = 'https://horizon-testnet.stellar.org';
+
+async function getHorizonServer() {
+  const sdk = await getSdk();
+  return new sdk.Horizon.Server(HORIZON_URL);
+}
 
 /**
  * Fetch all notes from the NoteKeeper contract.
@@ -145,4 +151,51 @@ export async function deleteNote(publicKey, noteId) {
     StellarSdk.nativeToScVal(publicKey, { type: 'address' }),
     StellarSdk.nativeToScVal(Number(noteId), { type: 'u64' })
   ));
+}
+
+/** Fetch XLM balance for a given address */
+export async function fetchBalance(publicKey) {
+  try {
+    const server = await getHorizonServer();
+    const account = await server.loadAccount(publicKey);
+    const nativeBalance = account.balances.find(b => b.asset_type === 'native');
+    return nativeBalance ? nativeBalance.balance : '0';
+  } catch (err) {
+    console.error('Error fetching balance:', err);
+    return '0';
+  }
+}
+
+/** Send XLM from one address to another */
+export async function sendXLM(publicKey, destination, amount) {
+  const StellarSdk = await getSdk();
+  const server = await getHorizonServer();
+  const { signTransaction } = await import('@stellar/freighter-api');
+
+  const account = await server.loadAccount(publicKey);
+  const tx = new StellarSdk.TransactionBuilder(account, {
+    fee: StellarSdk.BASE_FEE,
+    networkPassphrase: StellarSdk.Networks.TESTNET,
+  })
+    .addOperation(StellarSdk.Operation.payment({
+      destination,
+      asset: StellarSdk.Asset.native(),
+      amount: amount.toString(),
+    }))
+    .setTimeout(60)
+    .build();
+
+  const signedResult = await signTransaction(tx.toXDR(), {
+    networkPassphrase: StellarSdk.Networks.TESTNET,
+  });
+
+  const signedXdr = typeof signedResult === 'string' ? signedResult : signedResult.signedTxXdr;
+  const signedTx = StellarSdk.TransactionBuilder.fromXDR(signedXdr, StellarSdk.Networks.TESTNET);
+
+  const result = await server.submitTransaction(signedTx);
+  return {
+    success: true,
+    hash: result.hash,
+    ledger: result.ledger
+  };
 }

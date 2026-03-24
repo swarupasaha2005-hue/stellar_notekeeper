@@ -1,7 +1,7 @@
 import React from 'react';
 import DraggableWindow from './DraggableWindow';
 
-export default function WalletWidget({ address, isConnected, isConnecting, error, connect, disconnect, playClick, ...dragProps }) {
+export default function WalletWidget({ address, balance, isConnected, isConnecting, error, connect, disconnect, playClick, ...dragProps }) {
   const shortAddress = address ? `${address.substring(0, 4)}...${address.substring(address.length - 4)}` : '';
 
   return (
@@ -14,12 +14,18 @@ export default function WalletWidget({ address, isConnected, isConnecting, error
         {error && <div style={{ color: 'red', fontSize: '1.2rem' }}>{error}</div>}
 
         {isConnected ? (
-          <div className="flex-center gap-4" style={{ width: '100%' }}>
-            <div style={{ flex: 1, border: '2px solid var(--accent-green)', borderRadius: '24px', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(167,243,208,0.2)' }}>
+          <div className="flex-center" style={{ flexDirection: 'column', gap: '12px', width: '100%' }}>
+            <div style={{ width: '100%', border: '2px solid var(--accent-green)', borderRadius: '12px', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(167,243,208,0.1)' }}>
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--accent-green)' }}></div>
-              <span className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>{shortAddress}</span>
+              <span className="text-sm font-bold" style={{ color: 'var(--text-primary)', fontFamily: 'monospace' }}>{shortAddress}</span>
             </div>
-            <button className="retro-btn outline" onClick={(e) => { e.stopPropagation(); playClick(); disconnect(); }} style={{ fontSize: '1.2rem', padding: '6px 12px' }}>
+            
+            <div style={{ width: '100%', textAlign: 'center', padding: '8px', background: 'var(--bg-secondary)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '0.8rem', opacity: 0.7, marginBottom: '4px' }}>BALANCE</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--accent-blue)' }}>{balance} XLM</div>
+            </div>
+
+            <button className="retro-btn outline" onClick={(e) => { e.stopPropagation(); playClick(); disconnect(); }} style={{ width: '100%', fontSize: '1.2rem', padding: '8px' }}>
               Disconnect
             </button>
           </div>
