@@ -91,12 +91,53 @@ Returns all notes stored in the contract.
 
 Each note contains:
 
-```
-owner: Address
-content: String
+```rust
+pub struct Note {
+    pub id: u64,
+    pub owner: Address,
+    pub content: String,
+}
 ```
 
 ---
+
+### `update_note`
+
+Updates the content of an existing note. Only the owner of the note can update it.
+
+**Parameters**
+
+* `user: Address` → Wallet address of the user (must be the owner)
+* `note_id: u64` → ID of the note to update
+* `new_content: String` → The new note text
+
+---
+
+### `delete_note`
+
+Deletes an existing note. Only the owner of the note can delete it.
+
+**Parameters**
+
+* `user: Address` → Wallet address of the user (must be the owner)
+* `note_id: u64` → ID of the note to delete
+
+---
+
+## Running Tests
+
+The project includes a comprehensive test suite in Rust. To run the tests, ensure you have Rust and the Soroban CLI installed, then run:
+
+```bash
+cd contracts/notekeeper
+cargo test
+```
+
+The tests cover:
+1. Adding and retrieving notes.
+2. Updating existing notes.
+3. Deleting notes.
+4. Unauthorized access prevention.
 
 ## Project Structure
 
