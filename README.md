@@ -145,7 +145,8 @@ The tests cover:
 notekeeper/
 │
 ├── src/
-│   └── lib.rs        # Soroban smart contract
+│   ├── lib.rs        # Soroban smart contract
+│   └── test.rs       # Contract unit tests
 │
 ├── Cargo.toml        # Rust dependencies
 │
@@ -243,9 +244,9 @@ The frontend has been completely overhauled into an interactive, draggable **Ret
 
 Possible enhancements for the smart contract:
 
-* Add **note IDs**
 * Add **timestamps**
 * Support **user-specific note retrieval**
+* Add **note tags/categories**
 
 ---
 
