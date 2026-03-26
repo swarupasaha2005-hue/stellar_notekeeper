@@ -124,7 +124,7 @@ export default function App() {
       />
 
       <NotesListWidget 
-        initialPosition={{ x: 380, y: 110 }}
+        initialPosition={{ x: (winW - 500) / 2, y: 110 }}
         isDraggable={false}
         isActive={activeWindow === 'saved_dreams'}
         onFocus={() => setActiveWindow('saved_dreams')}
@@ -139,7 +139,7 @@ export default function App() {
       />
 
       <WalletWidget 
-        initialPosition={{ x: 30, y: 360 }}
+        initialPosition={{ x: 30, y: 300 }}
         isDraggable={false}
         isActive={activeWindow === 'notekeeper'}
         onFocus={() => setActiveWindow('notekeeper')}
@@ -153,7 +153,7 @@ export default function App() {
       />
 
       <TransferWidget 
-        initialPosition={{ x: 865, y: 560 }}
+        initialPosition={{ x: winW - 350, y: 510 }}
         isDraggable={false}
         isActive={activeWindow === 'transfer_xlm'}
         onFocus={() => setActiveWindow('transfer_xlm')}
@@ -164,7 +164,7 @@ export default function App() {
       />
 
       <ClockWidget 
-        initialPosition={{ x: 860, y: 30 }}
+        initialPosition={{ x: winW - 350, y: 30 }}
         isDraggable={false}
         isActive={activeWindow === 'sys_clock'}
         onFocus={() => setActiveWindow('sys_clock')}
@@ -172,7 +172,7 @@ export default function App() {
       />
       
       <MusicPlayerWidget 
-        initialPosition={{ x: 30, y: 590 }}
+        initialPosition={{ x: 30, y: 550 }}
         isDraggable={false}
         isActive={activeWindow === 'vibes_player'}
         onFocus={() => setActiveWindow('vibes_player')}
@@ -180,7 +180,7 @@ export default function App() {
       />
       
       <AffirmationWidget 
-        initialPosition={{ x: 570, y: 660 }}
+        initialPosition={{ x: (winW / 2) + 20, y: winH - 180 }}
         isDraggable={false}
         isActive={activeWindow === 'affirmations'}
         onFocus={() => setActiveWindow('affirmations')}
@@ -188,7 +188,7 @@ export default function App() {
       />
       
       <DailyWidget 
-        initialPosition={{ x: 345, y: 610 }}
+        initialPosition={{ x: (winW / 2) - 260, y: winH - 220 }}
         isDraggable={false}
         isActive={activeWindow === 'daily_hydrate'}
         onFocus={() => setActiveWindow('daily_hydrate')}
