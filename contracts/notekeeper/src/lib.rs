@@ -114,3 +114,5 @@ impl NoteKeeper {
             .unwrap_or(Vec::new(&env))
     }
 }
+#[cfg(test)]
+mod test;

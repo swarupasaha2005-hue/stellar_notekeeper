@@ -1,3 +1,10 @@
+use super::*;
+use soroban_sdk::testutils::Address as _;
+
+#[test]
+fn test_dummy() {
+    assert_eq!(1, 1);
+}
 #[test]
 fn test_add_and_get_notes() {
     let env = Env::default();
