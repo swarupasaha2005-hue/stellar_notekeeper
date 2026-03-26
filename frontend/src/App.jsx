@@ -114,7 +114,8 @@ export default function App() {
       </button>
 
       <AddNoteWidget 
-        initialPosition={{ x: 40, y: 40 }}
+        initialPosition={{ x: 30, y: 30 }}
+        isDraggable={false}
         isActive={activeWindow === 'new_dream'}
         onFocus={() => setActiveWindow('new_dream')}
         isConnected={wallet.isConnected} 
@@ -123,7 +124,8 @@ export default function App() {
       />
 
       <NotesListWidget 
-        initialPosition={{ x: Math.max(0, winW / 2 - 250), y: Math.max(0, winH / 2 - 210) }}
+        initialPosition={{ x: 380, y: 110 }}
+        isDraggable={false}
         isActive={activeWindow === 'saved_dreams'}
         onFocus={() => setActiveWindow('saved_dreams')}
         notes={notes}
@@ -137,7 +139,8 @@ export default function App() {
       />
 
       <WalletWidget 
-        initialPosition={{ x: Math.max(0, winW / 2 - 320), y: winH - 200 }}
+        initialPosition={{ x: 30, y: 360 }}
+        isDraggable={false}
         isActive={activeWindow === 'notekeeper'}
         onFocus={() => setActiveWindow('notekeeper')}
         address={wallet.address}
@@ -150,7 +153,8 @@ export default function App() {
       />
 
       <TransferWidget 
-        initialPosition={{ x: 40, y: winH - 600 }}
+        initialPosition={{ x: 865, y: 560 }}
+        isDraggable={false}
         isActive={activeWindow === 'transfer_xlm'}
         onFocus={() => setActiveWindow('transfer_xlm')}
         address={wallet.address}
@@ -160,28 +164,32 @@ export default function App() {
       />
 
       <ClockWidget 
-        initialPosition={{ x: winW - 360, y: 40 }}
+        initialPosition={{ x: 860, y: 30 }}
+        isDraggable={false}
         isActive={activeWindow === 'sys_clock'}
         onFocus={() => setActiveWindow('sys_clock')}
         playClick={playClick} 
       />
       
       <MusicPlayerWidget 
-        initialPosition={{ x: 40, y: winH - 280 }}
+        initialPosition={{ x: 30, y: 590 }}
+        isDraggable={false}
         isActive={activeWindow === 'vibes_player'}
         onFocus={() => setActiveWindow('vibes_player')}
         playClick={playClick} 
       />
       
       <AffirmationWidget 
-        initialPosition={{ x: Math.max(0, winW / 2 + 40), y: winH - 180 }}
+        initialPosition={{ x: 570, y: 660 }}
+        isDraggable={false}
         isActive={activeWindow === 'affirmations'}
         onFocus={() => setActiveWindow('affirmations')}
         playClick={playClick} 
       />
       
       <DailyWidget 
-        initialPosition={{ x: winW - 280, y: winH - 280 }}
+        initialPosition={{ x: 345, y: 610 }}
+        isDraggable={false}
         isActive={activeWindow === 'daily_hydrate'}
         onFocus={() => setActiveWindow('daily_hydrate')}
         playClick={playClick} 
