@@ -134,6 +134,7 @@ export async function submitNote(publicKey, content) {
 
 /** Update an existing note */
 export async function updateNote(publicKey, noteId, content) {
+  console.log('UPDATING NOTE:', { noteId, type: typeof noteId, content });
   const StellarSdk = await getSdk();
   const contract = new StellarSdk.Contract(CONTRACT_ID);
   return submitTransaction(publicKey, contract.call(
@@ -146,6 +147,7 @@ export async function updateNote(publicKey, noteId, content) {
 
 /** Delete an existing note */
 export async function deleteNote(publicKey, noteId) {
+  console.log('DELETING NOTE:', { noteId, type: typeof noteId });
   const StellarSdk = await getSdk();
   const contract = new StellarSdk.Contract(CONTRACT_ID);
   return submitTransaction(publicKey, contract.call(
