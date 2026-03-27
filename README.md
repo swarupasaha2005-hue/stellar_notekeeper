@@ -2,6 +2,10 @@
 
 ## Project Description
 
+Live Demo: https://stellarnotekeeper.vercel.app/
+Git Hub: https://github.com/swarupasaha2005-hue/stellar_notekeeper
+
+
 **NoteKeeper** is a simple decentralized note storage smart contract built using **Soroban on the Stellar blockchain**.
 The project demonstrates how users can store and retrieve notes directly on-chain using Soroban smart contracts written in Rust.
 
