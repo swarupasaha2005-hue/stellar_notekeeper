@@ -21,7 +21,7 @@ async function getServer() {
 
 // ── Contract Configuration ───────────────────────────
 // NOTE: You must update CONTRACT_ID when you re-deploy the updated contract logic!
-export const CONTRACT_ID = 'CCHMIRJQDW6HJPEZ3TUORFANL3M5HWSKVYVMJPBAXWTX3OZS3PKT6Q4B';
+export const CONTRACT_ID = 'CDB4KUPVJFG4NTSW6XUXKNK33BCYPOA7URO23R5U4PTP5XL5YH7MZDX2';
 export const SOROBAN_RPC_URL = 'https://soroban-testnet.stellar.org';
 export const HORIZON_URL = 'https://horizon-testnet.stellar.org';
 
@@ -134,7 +134,6 @@ export async function submitNote(publicKey, content) {
 
 /** Update an existing note */
 export async function updateNote(publicKey, noteId, content) {
-  console.log('UPDATING NOTE:', { noteId, type: typeof noteId, content });
   const StellarSdk = await getSdk();
   const contract = new StellarSdk.Contract(CONTRACT_ID);
   return submitTransaction(publicKey, contract.call(
@@ -147,7 +146,6 @@ export async function updateNote(publicKey, noteId, content) {
 
 /** Delete an existing note */
 export async function deleteNote(publicKey, noteId) {
-  console.log('DELETING NOTE:', { noteId, type: typeof noteId });
   const StellarSdk = await getSdk();
   const contract = new StellarSdk.Contract(CONTRACT_ID);
   return submitTransaction(publicKey, contract.call(

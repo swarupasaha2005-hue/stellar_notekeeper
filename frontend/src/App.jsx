@@ -17,7 +17,7 @@ export default function App() {
   const [fetchError, setFetchError] = useState(null);
   const [theme, setTheme] = useState('light');
   const [activeWindow, setActiveWindow] = useState('saved_dreams');
-  console.log("updated build");
+
   const loadNotes = useCallback(async () => {
     setIsLoading(true);
     setFetchError(null);
@@ -25,7 +25,6 @@ export default function App() {
       const result = await fetchNotes();
       setNotes(result);
     } catch (err) {
-      console.error('Failed to fetch notes:', err);
       setFetchError(err.message || 'Failed to fetch notes from the blockchain');
     } finally {
       setIsLoading(false);
