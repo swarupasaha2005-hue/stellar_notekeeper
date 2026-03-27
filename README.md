@@ -139,6 +139,9 @@ The tests cover:
 3. Deleting notes.
 4. Unauthorized access prevention.
 
+## 📸 Demo Preview
+![App Screenshot](./screenshots/demo.png)
+
 ## Project Structure
 
 ```
@@ -212,7 +215,7 @@ stellar contract invoke \
 ## Deployed Smart Contract Link
 
 ```
-https://lab.stellar.org/r/testnet/contract/CCHMIRJQDW6HJPEZ3TUORFANL3M5HWSKVYVMJPBAXWTX3OZS3PKT6Q4B
+https://lab.stellar.org/r/testnet/contract/CDB4KUPVJFG4NTSW6XUXKNK33BCYPOA7URO23R5U4PTP5XL5YH7MZDX2
 ```
 
 Replace this with your deployed contract explorer link.

@@ -8,6 +8,19 @@ publish = false
 crate-type = ["lib", "cdylib"]
 doctest = false
 
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
+
+[profile.release.package."*"]
+overflow-checks = true
+
 [dependencies]
 soroban-sdk = "22.0.0"
 
