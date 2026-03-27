@@ -63,9 +63,11 @@ export async function fetchNotes() {
   const rawVec = StellarSdk.scValToNative(resultVal);
 
   if (Array.isArray(rawVec)) {
-    for (const item of rawVec) {
+    for (let i = 0; i < rawVec.length; i++) {
+      const item = rawVec[i];
+      // Note: id might be a BigInt (u64), owner is Address object/string
       notes.push({
-        id: item.id?.toString() ?? null,
+        id: (item.id !== undefined && item.id !== null) ? item.id.toString() : `local-${i}`,
         owner: item.owner?.toString() ?? 'Unknown',
         content: item.content ?? '',
       });

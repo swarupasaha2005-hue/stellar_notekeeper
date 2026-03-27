@@ -70,7 +70,7 @@ export default function NotesListWidget({ notes, currentAddress, isLoading, erro
           {!isLoading && notes.length > 0 && (
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               {notes.map((note, i) => (
-                <div key={i} className="dream-item" onClick={playClick}>
+                <div key={note.id || i} className="dream-item" onClick={playClick}>
                   <div className="flex-between dream-owner">
                     <span>[OWNER: {note.owner.substring(0,4)}...{note.owner.substring(note.owner.length-4)}]</span>
                     

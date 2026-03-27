@@ -27,11 +27,11 @@ impl NoteKeeper {
 
         let mut notes: Vec<Note> = env
             .storage()
-            .instance()
+            .persistent()
             .get(&NOTES_V2)
             .unwrap_or(Vec::new(&env));
             
-        let current_id: u64 = env.storage().instance().get(&NOTE_ID_KEY).unwrap_or(1);
+        let current_id: u64 = env.storage().persistent().get(&NOTE_ID_KEY).unwrap_or(1);
 
         let note = Note {
             id: current_id,
@@ -41,8 +41,8 @@ impl NoteKeeper {
 
         notes.push_back(note);
 
-        env.storage().instance().set(&NOTES_V2, &notes);
-        env.storage().instance().set(&NOTE_ID_KEY, &(current_id + 1));
+        env.storage().persistent().set(&NOTES_V2, &notes);
+        env.storage().persistent().set(&NOTE_ID_KEY, &(current_id + 1));
     }
     
     // Update an existing note
@@ -51,7 +51,7 @@ impl NoteKeeper {
         
         let mut notes: Vec<Note> = env
             .storage()
-            .instance()
+            .persistent()
             .get(&NOTES_V2)
             .unwrap_or(Vec::new(&env));
             
@@ -73,7 +73,7 @@ impl NoteKeeper {
             panic!("Note not found");
         }
         
-        env.storage().instance().set(&NOTES_V2, &notes);
+        env.storage().persistent().set(&NOTES_V2, &notes);
     }
     
     // Delete an existing note
@@ -82,7 +82,7 @@ impl NoteKeeper {
         
         let mut notes: Vec<Note> = env
             .storage()
-            .instance()
+            .persistent()
             .get(&NOTES_V2)
             .unwrap_or(Vec::new(&env));
             
@@ -100,7 +100,7 @@ impl NoteKeeper {
         
         if let Some(i) = found_index {
             notes.remove(i);
-            env.storage().instance().set(&NOTES_V2, &notes);
+            env.storage().persistent().set(&NOTES_V2, &notes);
         } else {
             panic!("Note not found");
         }
@@ -109,7 +109,7 @@ impl NoteKeeper {
     // Get all notes
     pub fn get_notes(env: Env) -> Vec<Note> {
         env.storage()
-            .instance()
+            .persistent()
             .get(&NOTES_V2)
             .unwrap_or(Vec::new(&env))
     }
