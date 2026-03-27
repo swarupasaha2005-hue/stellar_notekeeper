@@ -17,7 +17,7 @@ export default function App() {
   const [fetchError, setFetchError] = useState(null);
   const [theme, setTheme] = useState('light');
   const [activeWindow, setActiveWindow] = useState('saved_dreams');
-
+  console.log("updated build");
   const loadNotes = useCallback(async () => {
     setIsLoading(true);
     setFetchError(null);
@@ -99,7 +99,7 @@ export default function App() {
 
   return (
     <div className="app-container" style={{ width: '100%', height: '100%' }} onPointerDown={handleDesktopClick}>
-      
+
       <div className="desktop-background-layer">
         <div className="cloud cloud-1">☁️</div>
         <div className="cloud cloud-2">☁️</div>
@@ -113,32 +113,32 @@ export default function App() {
         {theme === 'light' ? '🌙' : '☀️'}
       </button>
 
-      <AddNoteWidget 
+      <AddNoteWidget
         initialPosition={{ x: 58, y: 51 }}
         isDraggable={false}
         isActive={activeWindow === 'new_dream'}
         onFocus={() => setActiveWindow('new_dream')}
-        isConnected={wallet.isConnected} 
-        onSubmit={handleSubmitNote} 
+        isConnected={wallet.isConnected}
+        onSubmit={handleSubmitNote}
         playClick={playClick}
       />
 
-      <NotesListWidget 
+      <NotesListWidget
         initialPosition={{ x: 482, y: 115 }}
         isDraggable={false}
         isActive={activeWindow === 'saved_dreams'}
         onFocus={() => setActiveWindow('saved_dreams')}
         notes={notes}
         currentAddress={wallet.address}
-        isLoading={isLoading} 
-        error={fetchError} 
+        isLoading={isLoading}
+        error={fetchError}
         onRetry={loadNotes}
         onUpdate={handleUpdateNote}
         onDelete={handleDeleteNote}
         playClick={playClick}
       />
 
-      <WalletWidget 
+      <WalletWidget
         initialPosition={{ x: 58, y: 323 }}
         isDraggable={false}
         isActive={activeWindow === 'notekeeper'}
@@ -152,7 +152,7 @@ export default function App() {
         playClick={playClick}
       />
 
-      <TransferWidget 
+      <TransferWidget
         initialPosition={{ x: 1094, y: 503 }}
         isDraggable={false}
         isActive={activeWindow === 'transfer_xlm'}
@@ -163,36 +163,36 @@ export default function App() {
         playClick={playClick}
       />
 
-      <ClockWidget 
+      <ClockWidget
         initialPosition={{ x: 1095, y: 50 }}
         isDraggable={false}
         isActive={activeWindow === 'sys_clock'}
         onFocus={() => setActiveWindow('sys_clock')}
-        playClick={playClick} 
+        playClick={playClick}
       />
-      
-      <MusicPlayerWidget 
+
+      <MusicPlayerWidget
         initialPosition={{ x: 60, y: 511 }}
         isDraggable={false}
         isActive={activeWindow === 'vibes_player'}
         onFocus={() => setActiveWindow('vibes_player')}
-        playClick={playClick} 
+        playClick={playClick}
       />
-      
-      <AffirmationWidget 
+
+      <AffirmationWidget
         initialPosition={{ x: 730, y: 593 }}
         isDraggable={false}
         isActive={activeWindow === 'affirmations'}
         onFocus={() => setActiveWindow('affirmations')}
-        playClick={playClick} 
+        playClick={playClick}
       />
-      
-      <DailyWidget 
+
+      <DailyWidget
         initialPosition={{ x: 441, y: 558 }}
         isDraggable={false}
         isActive={activeWindow === 'daily_hydrate'}
         onFocus={() => setActiveWindow('daily_hydrate')}
-        playClick={playClick} 
+        playClick={playClick}
       />
 
     </div>
