@@ -3,7 +3,7 @@
 ## Project Description
 
 Live Demo: https://stellarnotekeeper.vercel.app/
-Git Hub: https://github.com/swarupasaha2005-hue/stellar_notekeeper
+Demo Video: https://youtu.be/d-rnebXK6Vw?si=Ph7dAOWj4U60XxqH
 
 
 **NoteKeeper** is a simple decentralized note storage smart contract built using **Soroban on the Stellar blockchain**.
