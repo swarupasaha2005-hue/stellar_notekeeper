@@ -206,3 +206,44 @@ body {
 
 .theme-toggle-btn { position: absolute; top: 20px; right: 20px; font-size: 2rem; background: var(--window-bg); border: 4px solid var(--window-border); border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; box-shadow: var(--window-shadow); z-index: 100; }
 .theme-toggle-btn:active { transform: translate(2px, 2px); box-shadow: 0px 0px 0px var(--window-border); }
+
+/* ── Mobile Responsiveness ── */
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .app-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    padding: 80px 10px 20px;
+    height: auto !important;
+  }
+  .app-title-main {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .theme-toggle-btn {
+    top: 10px;
+    right: 10px;
+  }
+  .retro-window {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 500px;
+    margin-bottom: 20px;
+    height: auto !important;
+    z-index: 10 !important;
+  }
+  .desktop-background-layer {
+    position: fixed;
+  }
+}

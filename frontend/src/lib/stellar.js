@@ -47,7 +47,7 @@ export async function fetchNotes() {
     fee: StellarSdk.BASE_FEE,
     networkPassphrase: StellarSdk.Networks.TESTNET,
   })
-    .addOperation(contract.call('get_notes'))
+    .addOperation(contract.call('get_all_notes'))
     .setTimeout(30)
     .build();
 
