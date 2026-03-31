@@ -15,9 +15,9 @@ It has been upgraded to a **Production-Ready Advanced** version that includes:
 - **Mobile Responsive Frontend**: Fully working retro-widget UI across all mobile devices.
 
 ### Smart Contract Addresses (Testnet)
-- **MemoToken (MEMO) Contract**: `TBD`  
-- **NoteKeeper Contract**: `TBD`  
-- **Example Transaction Hash (Inter-Contract Call)**: `TBD`
+- **MemoToken (MEMO) Contract**: `CCZJCZJ6L25Z3OH3SUDINGGEYR2S7LM64SQATIDUPWF7LFN56RNVSXHH`  
+- **NoteKeeper Contract**: `CBDQAYMVYRQ2K3YUN5U7GXBRZ6C63BUDFM5O5O6HVWDRN26DL4XOZEAR`  
+- **Example Transaction Hash (Inter-Contract Call)**: `288582925b15a65feb3176fa65ada4ea53fa48112ce3a34e3bda54665c30ab4b`
 
 *(Run `stellar contract deploy` and invoke locally to update the actual addresses above if testing).*
 
