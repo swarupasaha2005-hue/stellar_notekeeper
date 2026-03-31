@@ -1,6 +1,6 @@
 # 📝 NoteKeeper — Soroban Smart Contract
 
-[![CI](https://github.com/swarupasaha2005/stellar_notekeeper/actions/workflows/ci.yml/badge.svg)](https://github.com/swarupasaha2005/stellar_notekeeper/actions/workflows/ci.yml)
+[![CI](https://github.com/swarupasaha2005-hue/stellar_notekeeper/actions/workflows/ci.yml/badge.svg)](https://github.com/swarupasaha2005-hue/stellar_notekeeper/actions/workflows/ci.yml)
 
 ## Project Description
 
