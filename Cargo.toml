@@ -1,0 +1,10 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "contracts/notekeeper",
+    "contracts/memo_token",
+]
+
+[profile.release]
+overflow-checks = true
