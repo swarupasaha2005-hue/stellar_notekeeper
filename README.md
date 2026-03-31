@@ -1,28 +1,36 @@
 # 📝 NoteKeeper — Soroban Smart Contract
 
+[![CI](https://github.com/swarupasaha2005/stellar_notekeeper/actions/workflows/ci.yml/badge.svg)](https://github.com/swarupasaha2005/stellar_notekeeper/actions/workflows/ci.yml)
+
 ## Project Description
 
-Live Demo: https://stellarnotekeeper.vercel.app/
-Demo Video: https://youtu.be/d-rnebXK6Vw?si=Ph7dAOWj4U60XxqH
+**Live Demo:** [https://stellarnotekeeper.vercel.app/](https://stellarnotekeeper.vercel.app/)  
+*(Video demo available at: [https://youtu.be/d-rnebXK6Vw?si=Ph7dAOWj4U60XxqH](https://youtu.be/d-rnebXK6Vw?si=Ph7dAOWj4U60XxqH))*
 
+**NoteKeeper** is a decentralized note storage smart contract built using **Soroban on the Stellar blockchain**.
+It has been upgraded to a **Production-Ready Advanced** version that includes:
+- **Individual Note Storage**: More scalable than storing vectors of all notes.
+- **Inter-Contract Calls**: An integrated Reward system where every valid note creation yields 1 MemoToken (MEMO) to the user.
+- **Continuous Integration**: GitHub actions setup for automated rust linting and compiling.
+- **Mobile Responsive Frontend**: Fully working retro-widget UI across all mobile devices.
 
-**NoteKeeper** is a simple decentralized note storage smart contract built using **Soroban on the Stellar blockchain**.
-The project demonstrates how users can store and retrieve notes directly on-chain using Soroban smart contracts written in Rust.
+### Smart Contract Addresses (Testnet)
+- **MemoToken (MEMO) Contract**: `TBD`  
+- **NoteKeeper Contract**: `TBD`  
+- **Example Transaction Hash (Inter-Contract Call)**: `TBD`
 
-Each note is linked to the wallet address that created it, ensuring that only authenticated users can add notes.
-
-This project serves as a basic example for learning:
-
-* Soroban smart contract development
-* Blockchain-based storage
-* Authentication with Stellar addresses
-* Rust-based smart contract design
+*(Run `stellar contract deploy` and invoke locally to update the actual addresses above if testing).*
 
 ---
 
 ![notebook preview](explorer.jpg)
 
+### Mobile Responsive view
+
+![Mobile Preview](./screenshots/mobile.png)
+
 ## What It Does
+
 
 The **NoteKeeper** smart contract allows users to store short notes permanently on the blockchain.
 
